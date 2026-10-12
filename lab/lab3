@@ -1,0 +1,39 @@
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] price = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            price[i] = sc.nextInt();
+        }
+
+        int minPrice = price[0];
+        int maxProfit = 0;
+
+        for (int i = 1; i < n; i++) {
+            int profit = price[i] - minPrice;
+
+            if (profit > maxProfit) {
+                maxProfit = profit;
+            }
+
+            if (price[i] < minPrice) {
+                minPrice = price[i];
+            }
+        }
+
+        System.out.println("Maximum Profit: " + maxProfit);
+
+        sc.close();
+    }
+}
+Sample Input
+6
+7 1 5 3 6 4
+Sample Output
+Maximum Profit: 5
