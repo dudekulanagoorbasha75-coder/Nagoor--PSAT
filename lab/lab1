@@ -1,0 +1,41 @@
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        double[] salary = new double[n];
+
+        for (int i = 0; i < n; i++) {
+            salary[i] = sc.nextDouble();
+        }
+
+        for (int i = 0; i < n; i++) {
+            double bonus;
+
+            if (salary[i] < 20000) {
+                bonus = salary[i] * 0.10;
+            } else if (salary[i] < 50000) {
+                bonus = salary[i] * 0.15;
+            } else {
+                bonus = salary[i] * 0.20;
+            }
+
+            salary[i] = salary[i] + bonus;
+            System.out.printf("%.2f%n", salary[i]);
+        }
+
+        sc.close();
+    }
+}
+sample input:
+3
+15000
+30000
+60000
+sample output:
+16500.00
+34500.00
+72000.00
