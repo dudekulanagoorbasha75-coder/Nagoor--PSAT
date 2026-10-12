@@ -1,0 +1,37 @@
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String text = sc.nextLine().toLowerCase();
+        String[] words = text.split("\\s+");
+        boolean[] counted = new boolean[words.length];
+
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].startsWith("#") &&
+                words[i].length() > 1 && !counted[i]) {
+
+                int count = 1;
+
+                for (int j = i + 1; j < words.length; j++) {
+                    if (words[i].equals(words[j])) {
+                        count++;
+                        counted[j] = true;
+                    }
+                }
+
+                System.out.println(words[i] + " : " + count);
+            }
+        }
+
+        sc.close();
+    }
+}
+Sample Input
+Java is easy #Java #Coding #java #Programming #Coding
+Sample Output
+#java : 2
+#coding : 2
+#programming : 1
