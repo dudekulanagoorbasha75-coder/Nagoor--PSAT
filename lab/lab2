@@ -1,0 +1,50 @@
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        int[] data = new int[n];
+        int sum = 0;
+        int max, min;
+
+        for (int i = 0; i < n; i++) {
+            data[i] = sc.nextInt();
+        }
+
+        max = data[0];
+        min = data[0];
+
+        for (int i = 0; i < n; i++) {
+            sum += data[i];
+
+            if (data[i] > max) {
+                max = data[i];
+            }
+
+            if (data[i] < min) {
+                min = data[i];
+            }
+        }
+
+        double average = (double) sum / n;
+
+        System.out.println("Total: " + sum);
+        System.out.printf("Average: %.2f%n", average);
+        System.out.println("Maximum: " + max);
+        System.out.println("Minimum: " + min);
+
+        sc.close();
+    }
+}
+Sample Input
+5
+10 20 30 40 50
+Sample Output
+Total: 150
+Average: 30.00
+Maximum: 50
+Minimum: 10
