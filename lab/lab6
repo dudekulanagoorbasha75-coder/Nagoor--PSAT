@@ -1,0 +1,93 @@
+
+import java.util.*;
+
+class Ride {
+    String name, pickup, destination;
+    double distance, fare;
+
+    Ride(String name, String pickup, String destination, double distance) {
+        this.name = name;
+        this.pickup = pickup;
+        this.destination = destination;
+        this.distance = distance;
+        this.fare = 50 + (distance * 12);
+    }
+
+    void display() {
+        System.out.println("Passenger: " + name);
+        System.out.println("Pickup: " + pickup);
+        System.out.println("Destination: " + destination);
+        System.out.println("Distance: " + distance + " km");
+        System.out.println("Fare: Rs." + fare);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Ride ride = null;
+
+        while (true) {
+            int choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+                case 1:
+                    String name = sc.nextLine();
+                    String pickup = sc.nextLine();
+                    String destination = sc.nextLine();
+                    double distance = sc.nextDouble();
+
+                    if (distance <= 0) {
+                        System.out.println("Invalid Distance");
+                    } else {
+                        ride = new Ride(name, pickup, destination, distance);
+                        System.out.println("Ride Booked Successfully");
+                        System.out.printf("Fare: Rs.%.2f%n", ride.fare);
+                    }
+                    break;
+
+                case 2:
+                    if (ride == null) {
+                        System.out.println("No Ride Booked");
+                    } else {
+                        ride.display();
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Thank You");
+                    sc.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid Choice");
+            }
+        }
+    }
+}
+Input Format
+
+1 — Book a ride, followed by passenger name, pickup, destination, and distance.
+
+2 — View ride details.
+
+3 — Exit.
+
+Sample Input
+1
+Ravi
+College
+Airport
+10
+2
+3
+Sample Output
+Ride Booked Successfully
+Fare: Rs.170.00
+Passenger: Ravi
+Pickup: College
+Destination: Airport
+Distance: 10.0 km
+Fare: Rs.170.0
+Thank You
