@@ -1,0 +1,72 @@
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double balance = 1000;
+
+        while (true) {
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    double deposit = sc.nextDouble();
+
+                    if (deposit > 0) {
+                        balance += deposit;
+                        System.out.println("Deposit Successful");
+                    } else {
+                        System.out.println("Invalid Amount");
+                    }
+                    break;
+
+                case 2:
+                    double withdraw = sc.nextDouble();
+
+                    if (withdraw <= 0) {
+                        System.out.println("Invalid Amount");
+                    } else if (withdraw > balance) {
+                        System.out.println("Insufficient Balance");
+                    } else {
+                        balance -= withdraw;
+                        System.out.println("Withdrawal Successful");
+                    }
+                    break;
+
+                case 3:
+                    System.out.printf("Balance: %.2f%n", balance);
+                    break;
+
+                case 4:
+                    System.out.println("Thank You");
+                    sc.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid Choice");
+            }
+        }
+    }
+}
+Input Format
+
+1 amount — Deposit money
+
+2 amount — Withdraw money
+
+3 — Check balance
+
+4 — Exit
+
+Sample Input
+1 500
+2 200
+3
+4
+Sample Output
+Deposit Successful
+Withdrawal Successful
+Balance: 1300.00
+Thank You
