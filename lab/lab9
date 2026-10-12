@@ -1,0 +1,47 @@
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        String op = sc.next();
+        int b = sc.nextInt();
+
+        int result = 0;
+        int expected = 0;
+
+        if (op.equals("+")) {
+            result = a + b;
+            expected = a + b;
+        } 
+        else if (op.equals("/")) {
+            if (b == 0) {
+                System.out.println("Test Failed");
+                sc.close();
+                return;
+            }
+
+            result = a / b;
+            expected = a / b;
+        } 
+        else {
+            System.out.println("Test Failed");
+            sc.close();
+            return;
+        }
+
+        if (result == expected) {
+            System.out.println("Test Passed");
+        } else {
+            System.out.println("Test Failed");
+        }
+
+        sc.close();
+    }
+}
+Sample Input
+10 + 20
+Sample Output
+Test Passed
